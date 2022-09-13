@@ -31,9 +31,9 @@ final _kEventSource = Map.fromIterable(List.generate(50, (index) => index),
             cardColor1, 'assets/lime.png')))
   ..addAll({
     kToday: [
-      Event('Uber car rentals assistant', '12:00', '14:00', '', cardColor1,
+      Event('Uber car rentals assistant', '12:00', '14:00', '', cardColor3,
           'assets/uber.png'),
-      Event('Aribnb flat caretaker', '18:00', '23:00', '', cardColor2,
+      Event('Aribnb flat caretaker', '', '', '', cardColor2,
           'assets/profile.png'),
       Event(
           'Lime scooters gathering',
@@ -267,7 +267,7 @@ class _HomeViewState extends State<HomeView> {
                       ),
                       child: Card(
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
+                          borderRadius: BorderRadius.circular(10.0),
                         ),
                         color: value[index].color,
                         child: Column(
@@ -302,11 +302,14 @@ class _HomeViewState extends State<HomeView> {
                                     const SizedBox(
                                       height: 3,
                                     ),
-                                    Text(
-                                      '${value[index].stratTime}-${value[index].endTime}',
-                                      style: const TextStyle(
-                                          color: Colors.black, fontSize: 13),
-                                    ),
+                                    value[index].stratTime != ''
+                                        ? Text(
+                                            '${value[index].stratTime}-${value[index].endTime}',
+                                            style: const TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 13),
+                                          )
+                                        : Container()
                                   ],
                                 )
                               ],
